@@ -23,15 +23,16 @@ after_script: set +e
 before_deploy:
 - sh ci/before_deploy.sh
 deploy:
-  provider: cargo
-  token:
-    secure: ZkYFbqY9x3OmMMPy5xMe4/5f+1PjCqrm7YlBQ41BVECJ3SygBHulyEr82fXlC/uB3aEeO9aDkDexMcmw+7bwSjakfPxsSaJbYom2/gyt6NRiXYv+kQvOgGVaFfjB4MtFLM9dPcR4Ao1aTHNBfblivx4PzGM45UNWlJcwKM0JXyVixulagNxYMmVQs/xvKnUAu5YRag6P7W2kM1hbIxvoZ3M0fG32cmjhoFw1IdEgPtxJkBNbNMFxBZANOAJZxEnGpIoZZdxBtcTk60Ia5DAtte/fCY37cdw6+yZHPtfga0fgbeohhukOPducc/MepMXDbAN2doo+f9wh09yb1l1WlocUZcBp1Yy87POblzkck5BOLzdm4JauksDJEXdb19XxlRFtEWU6hgshkppv1Lq6kRkBrpbP8ODkrYMyYVBDOS6Pxjzoz+B9sCRnaMsLPnWTJI9iwWUPJqnoYnqw1mvsqFA3w3f74UW+fHdp0KREevijeAyWKZxlnbFRujjnuvvj1BBsuU/reqR0gysB9WdsaZXTgwzfRxYUzaHysz+QmfKF9pKYDNuiH6Im/7nqVz6Ra9I1mLMBoeARqzH5Ao5RiI9s2ldM7CP10nU//4Y0B9GswH1rducTJxGsVulbfBB0KrJBmJi7BBIE8pG3FxJv1sXAdgSAtquNPYG4N2p9Azg=
-  file_glob: true
-  file: "$CRATE_NAME-$TRAVIS_TAG-$TARGET.*"
+  provider: s3
+  access_key_id: AKIATGW3JNRAAPV2ZMSU
+  secret_access_key:
+    secure: mp9llWSZ44UQnMptgKqdLZpaaXHdiDwqEXOEUWnb3HFmWsajdabQqiyVUilfEFUShpbx6l2r1XNY0Ztd6Eci8eIAI4gjnrDwt6bSpBY73rCXfImA7ikeYJ+5KN/menaO1KO8ADxz1Ya7m6d2GS3zFoHfz3jrHvt0S0FQU0YF8mH0fj3mhGymJlo7HKfI1C2ay3SbMP1iwgwHdORcxtn8meB63E8eASQ02B7wFj+JHkIZUH4vuTwU6DScjuUkqo64lUyERS4zCQhDKxH7NH3yK1KmZNzS1lW4cf9T0A+LdBXH826j6BOQsBrK9+rSytNEBvhZ6XOuS2Y/Vmj+S+10hKU5piAbiRLcpPTRxpIZ2RRZlJI9I8QtBuGy8C3wSHBSpZT5oz2M2CzmK7EMc72E1w4NeAZl9vD0+H0DkXjiMLrLrYPdM/54ZEvK3fePGDhvbRb/lexWJMZxlKkDppgy6vN/Do2GKB7H/rB/CUD2MTItYPXdF/DeTdhduepBqepL4O6FHEN1q7wdTPxRje/noeva1jcQ9SaUzaTdKdQLGYMfT61h82Rf5dWMWLra0veis1aMOGv6H92W6BvxNy7TBAYmwl2q+RHQ4tHBy1Rd8cxMbMYVZVRfvXzuRtRiBYOW3NiapB6MTMwPVJT+oALLTPMp4Jn9Sxz4I9oAcXYoK+A=
+  bucket: kaguru-travis-public
+  acl: 'private'
   on:
-    condition: "$TRAVIS_RUST_VERSION = stable"
-    tags: true
-  skip_cleanup: true
+    repo: billwanjohi/zoom-transcript-edit
+    branch: trunk
+  skip_cleanup: 'true'
 cache: cargo
 before_cache:
 - chmod -R a+r $HOME/.cargo
