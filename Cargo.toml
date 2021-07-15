@@ -1,7 +1,9 @@
 [package]
 name = "zoom-transcript-edit"
+description = "Changes timestamps to a usable format"
 version = "0.1.0"
 edition = "2018"
+license = "AGPLv3"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
