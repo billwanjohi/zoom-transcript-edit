@@ -23,21 +23,25 @@ after_script: set +e
 before_deploy:
 - sh ci/before_deploy.sh
 deploy:
-  provider: s3
-  access_key_id: AKIATGW3JNRAAPV2ZMSU
-  secret_access_key: $AWS_SECRET_ACCESS_KEY
-  bucket: kaguru-travis-public
-  acl: 'private'
+  api_key: $GITHUB_PUBLIC_REPO_API_KEY
+  file_glob: true
+  file: $CRATE_NAME-$TRAVIS_TAG-$TARGET.*
   on:
-    repo: billwanjohi/zoom-transcript-edit
-    branch: trunk
-  skip_cleanup: 'true'
+    # TODO Here you can pick which targets will generate binary releases
+    # In this example, there are some targets that are tested using the stable
+    # and nightly channels. This condition makes sure there is only one release
+    # for such targets and that's generated using the stable channel
+    condition: $TRAVIS_RUST_VERSION = stable
+    tags: true
+  provider: releases
+  skip_cleanup: true
+  
 cache: cargo
 before_cache:
 - chmod -R a+r $HOME/.cargo
 branches:
   only:
-  - "/^v\\d+\\.\\d+\\.\\d+.*$/"
+  - /^v\d+\.\d+\.\d+.*$/
   - trunk
 notifications:
   email:
