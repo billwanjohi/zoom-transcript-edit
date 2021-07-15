@@ -104,8 +104,10 @@ deploy:
   # # - Create a `public_repo` GitHub token. Go to: https://github.com/settings/tokens/new
   # # - Encrypt it: `travis encrypt 0123456789012345678901234567890123456789
   # # - Paste the output down here
-  # api_key:
-  #   secure: A9v3PIzQQ4U08OHFmDPQzNXbNHEb7YHyLXCvMF+dXFuNSvhUNlmQYykxqUf3dvikhJL2/bsZ14umm7ni7fQh0tGwJ4+lPpNzYAcweGgNXnWvjTpY6ovuRbr3gs4/srkyxp/GBDmSW5L8wFN3hKCB+Lm0YnIPB9IA2afP8a30+8VTXT9nv7pNqGny4ilN41ycr4DZi3sQoXdbruy7ClN7gsWW/GUiudBccHVIjmTapOFKLwZHODaUl/1/RDWQzh+i+17e1ivXuJPktDSrqmHPTZ15OjklnHKd6t179ry6VkGRg4R/R/YukVIqGzeaXGWAwdAQ5gE8cjGZghJLVi2jkDBJ85z8MvT+zLZLyliiuhLc/X8y7mkE1n0FKFtXXzFVt0l7V1LaEKbIbiV6XX3jsir4qgkqWjPHBZqO5mkGNFS16Dmt30/ZtEPAzXiINFXbWuWrpQ/LZ4NSto8IMrRTcoyDbAga/KYxJiNIeVuCe1E9dbytDM7K0GLtxJTul/WnnSeI6r//EFyC4bxYjyHhCXaag4q14KM+ak4rB0QgxsYzyGuh2MqyCoVj8YJLjLdKnL/SV7W7LPD40xlxvI6VCYTVi2ILHwL6vCxpukXYteX0c5IAIWkISDKu6nNBEgmCHXXPSqYSrgE5g7/QoCQHI8++nR8iKe0s7TWxZRydby8=
+  api_key:
+    secure: >-
+      lDza1agLYlQj9+hz3vXnoTBuhl/bAPIEzDMsL+PUWneUDJsaQvzPTASHxtzEvvJspVk2/ma4aBHZ8z+0gkOiENREslwgjfZh1waugIMO5d2Lz1TBppkaZUye5h2xCQBDwzy+n+pDvXAWlvcmQuxMzwrlfSGG11u+OhmrYLqtcwHp9E6Gpo3W5vt6d71hlkm1p75ZBmNAsz5Ti6eKEJiKQfBcxybjapp7OQy80TSlv3FnU9zYiBOozTYzecS2XvMUrW21Ws2yLMzrVhTeLNlhvwa8hVH3feWfQZVe168Qg8aKeHzZz2Pn3tPa82J9HRsxHlEbtiAJzRnuPTF+gNu5jQYj9WJec/kg+BeZipcKsFHrBCQbHFjFGONFaRa/BpFrp9sDN4STycU51uFu30eUGzZk0RFyRuJghNFgnVW60AR2RANyEGi6ERRqQ7dZ8DDGY/u+oHcMzqC48DEC3srL/S51D8mQxjpdkItPtpgizfaG+VkyzF+BmlrAybFYki5iSULtmzeHdPYPUARB+gDK7VSNghodavbRE9xKshJEU9W+tDY8wIuVS/vsA6/bJ1OGMlWpVm0J4DH/d905/HpflcAHzncJYB8NllWc2n+26/6YoYaYb7jiHHQPxPEMhJ/jMGD57hBm4mPK//diA3mnFVADAsql7MH7ytUvJrL08zI=
+
   file_glob: true
   file: $CRATE_NAME-$TRAVIS_TAG-$TARGET.*
   on:
